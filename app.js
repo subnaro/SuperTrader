@@ -129,9 +129,7 @@ window.addEventListener("mouseleave", () => {
 });
 
 document.querySelectorAll(".link-btn, .socials a").forEach((item) => {
-    item.addEventListener("click", (event) => {
-        event.preventDefault();
-
+    item.addEventListener("click", () => {
         item.classList.add("clicked");
 
         setTimeout(() => {
