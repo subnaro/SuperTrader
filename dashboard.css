@@ -318,11 +318,24 @@
   text-shadow: 0 0 28px rgba(255,255,255,0.24);
 }
 
-.promo-logo::after {
-  content: "↗";
-  color: var(--gold);
-  font-size: 72px;
-  margin-left: 8px;
+.promo-logo{
+    position: relative;
+    z-index: 1;
+
+    width: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-logo img{
+    width: 100%;
+    max-width: 240px;
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 30px rgba(255,255,255,.18))
+        drop-shadow(0 0 50px rgba(243,181,54,.15));
 }
 
 .promo-card div {
@@ -505,10 +518,6 @@
 
 .promo-logo {
   font-size: 70px;
-}
-
-.promo-logo::after {
-  font-size: 60px;
 }
 
 .promo-card h2 {
