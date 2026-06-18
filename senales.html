@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Señales | SuperTrader Academy</title>
+
+  <link rel="stylesheet" href="senales.css" />
+  <script src="senales.js" defer></script>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+
+<body>
+  <div class="app">
+    <main class="signals-page">
+      <header class="signals-header">
+        <div>
+          <span class="eyebrow">SuperTrader Academy</span>
+          <h1>Señales del mes</h1>
+          <p>Historial completo de señales enviadas con entrada, SL, TP y resultado.</p>
+        </div>
+
+        <div class="month-selector">
+          <i class="fa-regular fa-calendar"></i>
+          <span>Junio 2026</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </header>
+
+      <section class="stats-grid">
+        <article class="stat-card">
+          <span>Señales enviadas</span>
+          <strong>18</strong>
+          <small>100% del mes</small>
+          <i class="fa-solid fa-paper-plane"></i>
+        </article>
+
+        <article class="stat-card success">
+          <span>Ganadas</span>
+          <strong>13</strong>
+          <small>72.2%</small>
+          <i class="fa-solid fa-chart-line"></i>
+        </article>
+
+        <article class="stat-card danger">
+          <span>Perdidas</span>
+          <strong>3</strong>
+          <small>16.7%</small>
+          <i class="fa-solid fa-chart-simple"></i>
+        </article>
+
+        <article class="stat-card warning">
+          <span>En curso</span>
+          <strong>2</strong>
+          <small>11.1%</small>
+          <i class="fa-regular fa-clock"></i>
+        </article>
+
+        <article class="stat-card">
+          <span>% Efectividad</span>
+          <strong>72.2%</strong>
+          <small>13 de 18</small>
+          <i class="fa-solid fa-trophy"></i>
+        </article>
+
+        <article class="performance-card">
+          <span>Rendimiento mensual</span>
+          <strong>+845 pips</strong>
+          <small>Beneficio neto</small>
+          <div class="mini-chart"></div>
+        </article>
+      </section>
+
+      <section class="toolbar">
+        <div class="filters">
+          <button class="filter-btn active" data-filter="todas">Todas</button>
+          <button class="filter-btn" data-filter="ganadas">Ganadas</button>
+          <button class="filter-btn" data-filter="perdidas">Perdidas</button>
+          <button class="filter-btn" data-filter="curso">En curso</button>
+          <button class="filter-btn" data-filter="canceladas">Canceladas</button>
+        </div>
+
+        <button class="export-btn">
+          <i class="fa-solid fa-download"></i>
+          Exportar
+        </button>
+      </section>
+
+      <section class="signals-table">
+        <div class="table-head">
+          <span>Señal</span>
+          <span>Dirección</span>
+          <span>Entrada</span>
+          <span>Stop Loss</span>
+          <span>Take Profit</span>
+          <span>Resultado</span>
+          <span>Pips</span>
+          <span>Fecha</span>
+        </div>
+
+        <article class="signal-row win" data-status="ganadas">
+          <div class="asset">
+            <div class="asset-icon gold">
+              <i class="fa-solid fa-coins"></i>
+            </div>
+            <div>
+              <strong>XAU/USD</strong>
+              <small>Oro / Dólar</small>
+            </div>
+          </div>
+
+          <span class="direction buy">Compra ↑</span>
+          <span>2345.50</span>
+          <span class="negative">2338.00</span>
+          <span class="positive">2352.00 / 2360.00</span>
+          <span><b class="badge green">TP2 alcanzado</b></span>
+          <span class="positive">+145 pips</span>
+          <span class="date">18 Jun 2026<br><small>10:30 AM</small></span>
+        </article>
+
+        <article class="signal-row win" data-status="ganadas">
+          <div class="asset">
+            <div class="asset-icon forex">
+              <i class="fa-solid fa-dollar-sign"></i>
+            </div>
+            <div>
+              <strong>EUR/USD</strong>
+              <small>Euro / Dólar</small>
+            </div>
+          </div>
+
+          <span class="direction buy">Compra ↑</span>
+          <span>1.08850</span>
+          <span class="negative">1.08300</span>
+          <span class="positive">1.09400 / 1.10000</span>
+          <span><b class="badge green">TP1 alcanzado</b></span>
+          <span class="positive">+55 pips</span>
+          <span class="date">17 Jun 2026<br><small>04:15 PM</small></span>
+        </article>
+
+        <article class="signal-row loss" data-status="perdidas">
+          <div class="asset">
+            <div class="asset-icon forex">
+              <i class="fa-solid fa-sterling-sign"></i>
+            </div>
+            <div>
+              <strong>GBP/USD</strong>
+              <small>Libra / Dólar</small>
+            </div>
+          </div>
+
+          <span class="direction sell">Venta ↓</span>
+          <span>1.27640</span>
+          <span class="negative">1.28150</span>
+          <span class="negative">1.26800 / 1.26000</span>
+          <span><b class="badge red">SL alcanzado</b></span>
+          <span class="negative">-51 pips</span>
+          <span class="date">16 Jun 2026<br><small>11:20 AM</small></span>
+        </article>
+
+        <article class="signal-row active" data-status="curso">
+          <div class="asset">
+            <div class="asset-icon gold">
+              <i class="fa-solid fa-coins"></i>
+            </div>
+            <div>
+              <strong>XAU/USD</strong>
+              <small>Oro / Dólar</small>
+            </div>
+          </div>
+
+          <span class="direction buy">Compra ↑</span>
+          <span>2320.10</span>
+          <span class="negative">2312.00</span>
+          <span class="positive">2330.00 / 2340.00</span>
+          <span><b class="badge yellow">En curso</b></span>
+          <span class="positive">+23 pips</span>
+          <span class="date">Hoy<br><small>09:45 AM</small></span>
+        </article>
+
+        <article class="signal-row canceled" data-status="canceladas">
+          <div class="asset">
+            <div class="asset-icon crypto">
+              <i class="fa-brands fa-bitcoin"></i>
+            </div>
+            <div>
+              <strong>BTC/USD</strong>
+              <small>Bitcoin / Dólar</small>
+            </div>
+          </div>
+
+          <span class="direction sell">Venta ↓</span>
+          <span>67,250.00</span>
+          <span class="negative">68,800.00</span>
+          <span class="negative">65,500.00 / 63,000.00</span>
+          <span><b class="badge gray">Cancelada</b></span>
+          <span>—</span>
+          <span class="date">14 Jun 2026<br><small>02:10 PM</small></span>
+        </article>
+
+        <article class="signal-row win" data-status="ganadas">
+          <div class="asset">
+            <div class="asset-icon forex">
+              <i class="fa-solid fa-yen-sign"></i>
+            </div>
+            <div>
+              <strong>USD/JPY</strong>
+              <small>Dólar / Yen</small>
+            </div>
+          </div>
+
+          <span class="direction buy">Compra ↑</span>
+          <span>157.350</span>
+          <span class="negative">156.500</span>
+          <span class="positive">158.200 / 159.000</span>
+          <span><b class="badge green">TP2 alcanzado</b></span>
+          <span class="positive">+165 pips</span>
+          <span class="date">13 Jun 2026<br><small>08:30 AM</small></span>
+        </article>
+      </section>
+
+      <footer class="signals-footer">
+        <span>Mostrando 1 a 6 de 18 señales</span>
+
+        <div class="pagination">
+          <button><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="active">1</button>
+          <button>2</button>
+          <button>3</button>
+          <button><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
