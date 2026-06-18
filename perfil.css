@@ -1,0 +1,268 @@
+/* ===== PERFIL ===== */
+
+.perfil-page{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.perfil-title h1{
+    font-size:34px;
+    color:#fff;
+    margin-bottom:6px;
+}
+
+.perfil-title p{
+    color:#9b9b9b;
+    font-size:15px;
+}
+
+/* Cards */
+
+.perfil-card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:22px;
+    padding:28px;
+    backdrop-filter:blur(15px);
+}
+
+.perfil-card h3{
+    color:#fff;
+    margin-bottom:22px;
+    font-size:22px;
+}
+
+/* Hero */
+
+.perfil-hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.perfil-user{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.perfil-avatar{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #f5c13b;
+}
+
+.perfil-info h2{
+    color:white;
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+.perfil-plan{
+    color:#f5c13b;
+    font-size:18px;
+    display:block;
+    margin-bottom:16px;
+}
+
+.perfil-meta{
+    display:flex;
+    gap:20px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.perfil-meta span{
+    color:#9c9c9c;
+    font-size:14px;
+}
+
+.estado-activo{
+    background:#163a23;
+    color:#65d27d !important;
+    padding:8px 14px;
+    border-radius:12px;
+}
+
+/* Botones */
+
+.btn-outline{
+    background:none;
+    border:1px solid rgba(255,255,255,.15);
+    color:white;
+    padding:14px 24px;
+    border-radius:14px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-outline:hover{
+    border-color:#f5c13b;
+    color:#f5c13b;
+}
+
+/* Estadísticas */
+
+.perfil-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat-card{
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.05);
+    border-radius:18px;
+    padding:24px;
+}
+
+.stat-icon{
+    font-size:28px;
+}
+
+.stat-card strong{
+    display:block;
+    color:white;
+    font-size:36px;
+    margin-top:12px;
+}
+
+.stat-card p{
+    color:#9b9b9b;
+    margin-top:8px;
+}
+
+.stat-bar{
+    width:100%;
+    height:8px;
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+    margin-top:18px;
+    overflow:hidden;
+}
+
+.stat-bar span{
+    display:block;
+    height:100%;
+    background:#f5c13b;
+    border-radius:20px;
+}
+
+/* Grid inferior */
+
+.perfil-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+/* Actividad */
+
+.activity-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.activity-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.activity-icon{
+    font-size:22px;
+}
+
+.activity-item p{
+    flex:1;
+    color:white;
+}
+
+.activity-item small{
+    color:#888;
+}
+
+.btn-link{
+    margin-top:20px;
+    background:none;
+    border:none;
+    color:#f5c13b;
+    cursor:pointer;
+    font-size:15px;
+}
+
+/* Configuración */
+
+.settings-list{
+    display:flex;
+    flex-direction:column;
+}
+
+.setting-item{
+    background:none;
+    border:none;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    cursor:pointer;
+    transition:.3s;
+    font-size:16px;
+}
+
+.setting-item:hover{
+    color:#f5c13b;
+}
+
+.setting-item b{
+    color:#777;
+}
+
+.logout{
+    color:#ff5757;
+}
+
+/* Responsive */
+
+@media(max-width:1200px){
+
+    .perfil-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .perfil-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .perfil-hero{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:25px;
+    }
+
+    .perfil-user{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .perfil-info h2{
+        font-size:28px;
+    }
+
+    .perfil-stats{
+        grid-template-columns:1fr;
+    }
+
+}
