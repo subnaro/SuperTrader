@@ -138,11 +138,11 @@ function botonesDemo() {
         });
     }
 
-    if (btnRegister) {
-        btnRegister.addEventListener("click", () => {
-            console.log("Unirme ahora");
-        });
-    }
+    if (btnLogin) {
+    btnLogin.addEventListener("click", () => {
+        window.location.href = "academia.html";
+    });
+}
 
     if (btnLogin) {
         btnLogin.addEventListener("click", () => {
