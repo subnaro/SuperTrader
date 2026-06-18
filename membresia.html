@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membresías | Super Trader Academy</title>
+
+  <link rel="stylesheet" href="membresia.css" />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+</head>
+<body>
+
+  <main class="membership-page">
+
+    <header class="membership-header">
+      <div>
+        <h1>Membresías</h1>
+        <p>Acceso premium a educación, señales y sesiones en vivo.</p>
+      </div>
+
+      <button class="history-top-btn" id="btnScrollHistory">
+        <i class="fa-regular fa-calendar-check"></i>
+        Historial de pagos
+      </button>
+    </header>
+
+    <section class="plans-layout">
+
+      <div class="plans-grid">
+
+        <article class="plan-card">
+          <div class="plan-bg-icon">
+            <i class="fa-regular fa-gem"></i>
+          </div>
+
+          <span class="plan-label">PLAN</span>
+          <h2>ESSENTIAL</h2>
+          <span class="plan-badge green">Ideal para comenzar</span>
+
+          <ul class="plan-list">
+            <li><i class="fa-regular fa-circle-check"></i> Academia completa</li>
+            <li><i class="fa-regular fa-circle-check"></i> Comunidad privada</li>
+            <li><i class="fa-regular fa-circle-check"></i> 2 sesiones en vivo por semana</li>
+            <li><i class="fa-regular fa-circle-check"></i> Soporte por Discord</li>
+          </ul>
+
+          <div class="plan-price">
+            <strong>29</strong>
+            <span>USDT / mes</span>
+          </div>
+
+          <button class="pay-btn" data-plan="ESSENTIAL" data-price="29">
+            <span class="usdt-icon">₮</span>
+            Pagar con USDT <small>(TRC20)</small>
+          </button>
+
+          <button class="details-btn">Ver detalles</button>
+        </article>
+
+        <article class="plan-card featured">
+          <div class="featured-ribbon">
+            <i class="fa-solid fa-star"></i>
+            MÁS ELEGIDO
+          </div>
+
+          <div class="plan-bg-icon">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+          </div>
+
+          <span class="plan-label">PLAN</span>
+          <h2>PRO <i class="fa-solid fa-star title-icon"></i></h2>
+
+          <ul class="plan-list">
+            <li><i class="fa-regular fa-circle-check"></i> Todo lo anterior</li>
+            <li><i class="fa-regular fa-circle-check"></i> Señales Premium</li>
+            <li><i class="fa-regular fa-circle-check"></i> 5 sesiones en vivo por semana</li>
+            <li><i class="fa-regular fa-circle-check"></i> Calendario económico</li>
+            <li><i class="fa-regular fa-circle-check"></i> Alertas por Telegram</li>
+            <li><i class="fa-regular fa-circle-check"></i> Soporte prioritario</li>
+          </ul>
+
+          <div class="plan-price">
+            <strong>59</strong>
+            <span>USDT / mes</span>
+          </div>
+
+          <button class="pay-btn" data-plan="PRO" data-price="59">
+            <span class="usdt-icon">₮</span>
+            Pagar con USDT <small>(TRC20)</small>
+          </button>
+
+          <button class="details-btn">Ver detalles</button>
+        </article>
+
+        <article class="plan-card">
+          <div class="plan-bg-icon">
+            <i class="fa-solid fa-crown"></i>
+          </div>
+
+          <span class="plan-label">PLAN</span>
+          <h2>ELITE <i class="fa-solid fa-crown title-icon"></i></h2>
+
+          <ul class="plan-list">
+            <li><i class="fa-regular fa-circle-check"></i> Todo lo anterior</li>
+            <li><i class="fa-regular fa-circle-check"></i> Mentorías privadas grupales</li>
+            <li><i class="fa-regular fa-circle-check"></i> Estrategias avanzadas</li>
+            <li><i class="fa-regular fa-circle-check"></i> Sala exclusiva VIP</li>
+            <li><i class="fa-regular fa-circle-check"></i> Workshops mensuales</li>
+            <li><i class="fa-regular fa-circle-check"></i> Prioridad absoluta</li>
+          </ul>
+
+          <div class="plan-price">
+            <strong>99</strong>
+            <span>USDT / mes</span>
+          </div>
+
+          <button class="pay-btn" data-plan="ELITE" data-price="99">
+            <span class="usdt-icon">₮</span>
+            Pagar con USDT <small>(TRC20)</small>
+          </button>
+
+          <button class="details-btn">Ver detalles</button>
+        </article>
+
+      </div>
+
+      <aside class="payment-info-card">
+        <div class="info-block">
+          <div class="info-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+
+          <h3>Elige tu plan</h3>
+          <p>
+            Todos nuestros planes te dan acceso inmediato a la plataforma y a nuestra comunidad privada.
+          </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="info-block">
+          <h3>Pago 100% seguro</h3>
+          <p>
+            Aceptamos pagos únicamente en <strong>USDT</strong> a través de la red <strong>TRC20</strong>.
+          </p>
+        </div>
+
+        <div class="usdt-glow">
+          <span>₮</span>
+        </div>
+      </aside>
+
+    </section>
+
+    <section class="payments-history" id="paymentsHistory">
+      <div class="history-header">
+        <h2>Historial de pagos</h2>
+        <button>Ver historial completo <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>FECHA</th>
+              <th>PLAN</th>
+              <th>MONTO</th>
+              <th>RED</th>
+              <th>TXID</th>
+              <th>ESTADO</th>
+            </tr>
+          </thead>
+
+          <tbody id="paymentsTable">
+            <tr>
+              <td>10/06/2026</td>
+              <td>PRO <i class="fa-solid fa-star gold"></i></td>
+              <td>59 USDT</td>
+              <td><span class="network-pill">TRC20</span></td>
+              <td>
+                0x85A2...F4B7
+                <button class="copy-btn" data-copy="0x85A2F4B7">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </td>
+              <td><span class="status confirmed"><i class="fa-regular fa-circle-check"></i> Confirmado</span></td>
+            </tr>
+
+            <tr>
+              <td>10/05/2026</td>
+              <td>PRO <i class="fa-solid fa-star gold"></i></td>
+              <td>59 USDT</td>
+              <td><span class="network-pill">TRC20</span></td>
+              <td>
+                0x43BC...C811
+                <button class="copy-btn" data-copy="0x43BCC811">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </td>
+              <td><span class="status confirmed"><i class="fa-regular fa-circle-check"></i> Confirmado</span></td>
+            </tr>
+
+            <tr>
+              <td>10/04/2026</td>
+              <td>ESSENTIAL</td>
+              <td>29 USDT</td>
+              <td><span class="network-pill">TRC20</span></td>
+              <td>
+                0x29AA...7812
+                <button class="copy-btn" data-copy="0x29AA7812">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </td>
+              <td><span class="status confirmed"><i class="fa-regular fa-circle-check"></i> Confirmado</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="secure-footer">
+      <i class="fa-solid fa-lock"></i>
+      Tus pagos están protegidos con cifrado SSL de 256 bits.
+    </div>
+
+  </main>
+
+  <div class="payment-modal" id="paymentModal">
+    <div class="modal-overlay" id="closeModal"></div>
+
+    <div class="modal-card">
+      <button class="modal-close" id="modalCloseBtn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h2>Pagar con USDT</h2>
+      <p class="modal-subtitle">Realiza el pago usando la red TRC20.</p>
+
+      <div class="modal-plan-box">
+        <span>Plan seleccionado</span>
+        <strong id="modalPlan">PRO</strong>
+      </div>
+
+      <div class="modal-plan-box">
+        <span>Monto a pagar</span>
+        <strong><span id="modalPrice">59</span> USDT</strong>
+      </div>
+
+      <div class="wallet-box">
+        <span>Dirección de pago</span>
+        <div>
+          <input id="walletAddress" value="TJ4QhFxxxxxxxxxxxxxxxxxxxxxx" readonly />
+          <button id="copyWallet">
+            <i class="fa-regular fa-copy"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="qr-box">
+        <div class="qr-fake">
+          <span>₮</span>
+        </div>
+      </div>
+
+      <button class="modal-main-btn" id="confirmPayment">
+        Ya realicé el pago
+      </button>
+
+      <button class="modal-secondary-btn" id="cancelPayment">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Copiado correctamente</div>
+
+  <script src="membresia.js"></script>
+</body>
+</html>
