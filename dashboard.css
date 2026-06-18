@@ -1,5 +1,5 @@
 .modulo-contenido {
-  margin-top: 28px;
+  margin-top: 18px;
 }
 
 .dashboard {
@@ -7,11 +7,11 @@
 }
 
 .dashboard-welcome {
-  margin-bottom: 26px;
+  margin-bottom: 20px;
 }
 
 .dashboard-welcome h1 {
-  font-size: 32px;
+  font-size: 27px;
   font-weight: 850;
   letter-spacing: -0.04em;
 }
@@ -19,14 +19,14 @@
 .dashboard-welcome p {
   margin-top: 8px;
   color: var(--muted);
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .dashboard-kpis {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-bottom: 18px;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
 .kpi-card,
@@ -41,35 +41,44 @@
 }
 
 .kpi-card {
-  min-height: 170px;
-  padding: 22px;
+  min-height: 140px;
+  padding: 18px;
   display: flex;
-  gap: 18px;
+  gap: 15px;
 }
 
 .kpi-icon {
-  width: 56px;
-  height: 56px;
-  flex: 0 0 56px;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
   border-radius: 13px;
   display: grid;
   place-items: center;
-  font-size: 26px;
   background: linear-gradient(145deg, rgba(243,181,54,0.28), rgba(243,181,54,0.08));
   border: 1px solid rgba(243,181,54,0.28);
+}
+
+.kpi-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .kpi-card span {
   display: block;
   color: #ffffff;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 9px;
+  margin-bottom: 7px;
 }
 
 .kpi-card h2 {
-  font-size: 30px;
+  font-size: 27px;
   line-height: 1;
   margin-bottom: 10px;
 }
@@ -87,8 +96,8 @@
 
 .kpi-card p {
   color: #c4c6cc;
-  font-size: 13px;
-  margin-bottom: 20px;
+  font-size: 12px;
+  margin-bottom: 14px;
 }
 
 .kpi-card button,
@@ -107,7 +116,7 @@
   border-radius: 999px;
   background: rgba(255,255,255,0.08);
   overflow: hidden;
-  margin: 16px 0 24px;
+  margin: 12px 0 18px;
 }
 
 .progress-line b {
@@ -120,29 +129,29 @@
 .dashboard-grid {
   display: grid;
   grid-template-columns: 1.35fr 1.15fr 1fr;
-  gap: 18px;
-  margin-bottom: 18px;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
 .panel-card {
-  padding: 22px;
+  padding: 18px;
 }
 
 .panel-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 18px;
+  padding-bottom: 14px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .panel-head h3 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 850;
 }
 
 .signal-row {
-  min-height: 73px;
+  min-height: 60px;
   display: grid;
   grid-template-columns: 1fr 62px 90px 80px;
   align-items: center;
@@ -189,7 +198,7 @@
 }
 
 .live-row {
-  min-height: 76px;
+  min-height: 62px;
   display: grid;
   grid-template-columns: 18px 1fr 66px;
   align-items: center;
@@ -227,7 +236,7 @@
 }
 
 .news-row {
-  min-height: 76px;
+  min-height: 62px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -239,17 +248,22 @@
   height: 44px;
   display: grid;
   place-items: center;
-  font-size: 31px;
+  border-radius: 12px;
+  color: var(--gold);
+  background: rgba(243,181,54,0.12);
+  border: 1px solid rgba(243,181,54,0.22);
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .dashboard-bottom {
   display: grid;
   grid-template-columns: 1fr 1.28fr;
-  gap: 18px;
+  gap: 14px;
 }
 
 .course-row {
-  min-height: 84px;
+  min-height: 70px;
   display: grid;
   grid-template-columns: 82px 1fr 50px;
   align-items: center;
@@ -258,7 +272,7 @@
 }
 
 .course-img {
-  height: 50px;
+  height: 42px;
   border-radius: 8px;
   display: grid;
   place-items: center;
@@ -287,13 +301,15 @@
   color: var(--gold);
 }
 
+/* ===== BANNER INFERIOR ===== */
+
 .promo-card {
-  min-height: 250px;
-  padding: 38px 48px;
+  min-height: 220px;
+  padding: 28px 38px;
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 150px 1fr;
   align-items: center;
-  gap: 30px;
+  gap: 28px;
   overflow: hidden;
   position: relative;
 }
@@ -303,72 +319,60 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 35% 55%, rgba(243,181,54,0.16), transparent 32%),
-    linear-gradient(120deg, transparent, rgba(243,181,54,0.05), transparent);
+    radial-gradient(circle at 35% 55%, rgba(243,181,54,.16), transparent 32%),
+    linear-gradient(120deg, transparent, rgba(243,181,54,.05), transparent);
   pointer-events: none;
 }
 
 .promo-logo {
   position: relative;
   z-index: 1;
-  font-size: 82px;
-  font-weight: 950;
-  letter-spacing: -10px;
-  color: #ffffff;
-  text-shadow: 0 0 28px rgba(255,255,255,0.24);
+  width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.promo-logo{
-    position: relative;
-    z-index: 1;
-
-    width: 240px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.promo-logo img {
+  width: 100%;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 18px rgba(255,255,255,.15))
+    drop-shadow(0 0 30px rgba(243,181,54,.12));
 }
 
-.promo-logo img{
-    width: 100%;
-    max-width: 240px;
-    object-fit: contain;
-
-    filter:
-        drop-shadow(0 0 30px rgba(255,255,255,.18))
-        drop-shadow(0 0 50px rgba(243,181,54,.15));
-}
-
-.promo-card div {
+.promo-card > div:last-child {
   position: relative;
   z-index: 1;
 }
 
 .promo-card h2 {
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1.1;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .promo-card h2 span {
   display: block;
   color: var(--gold);
-  letter-spacing: 0.06em;
+  letter-spacing: .06em;
 }
 
 .promo-card p {
   max-width: 420px;
   color: #d2d4d8;
   line-height: 1.5;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
+  font-size: 14px;
 }
 
 .promo-card button {
   height: 44px;
   padding: 0 24px;
   border: 0;
-  border-radius: 9px;
-  background: linear-gradient(180deg, var(--gold-2), #d9981d);
+  border-radius: 10px;
+  background: linear-gradient(180deg,var(--gold-2),#d9981d);
   color: #111;
   font-size: 14px;
   font-weight: 900;
@@ -414,126 +418,6 @@
   }
 
   .promo-logo {
-    font-size: 60px;
+    width: 120px;
   }
-}
-
-/* ================= AJUSTE ESCALA DASHBOARD ================= */
-
-.modulo-contenido {
-  margin-top: 18px;
-}
-
-.dashboard-welcome {
-  margin-bottom: 20px;
-}
-
-.dashboard-welcome h1 {
-  font-size: 27px;
-}
-
-.dashboard-welcome p {
-  font-size: 14px;
-}
-
-.dashboard-kpis {
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-.kpi-card {
-  min-height: 140px;
-  padding: 18px;
-  gap: 15px;
-}
-
-.kpi-icon {
-  width: 48px;
-  height: 48px;
-  flex-basis: 48px;
-  font-size: 22px;
-}
-
-.kpi-card span {
-  font-size: 11px;
-  margin-bottom: 7px;
-}
-
-.kpi-card h2 {
-  font-size: 27px;
-}
-
-.kpi-card p {
-  font-size: 12px;
-  margin-bottom: 14px;
-}
-
-.progress-line {
-  margin: 12px 0 18px;
-}
-
-.dashboard-grid {
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-.panel-card {
-  padding: 18px;
-}
-
-.panel-head {
-  padding-bottom: 14px;
-}
-
-.panel-head h3 {
-  font-size: 16px;
-}
-
-.signal-row {
-  min-height: 60px;
-}
-
-.live-row,
-.news-row {
-  min-height: 62px;
-}
-
-.dashboard-bottom {
-  gap: 14px;
-}
-
-.course-row {
-  min-height: 70px;
-}
-
-.course-img {
-  height: 42px;
-}
-
-.promo-card {
-  min-height: 220px;
-  padding: 30px 40px;
-  grid-template-columns: 190px 1fr;
-}
-
-.promo-logo {
-  font-size: 70px;
-}
-
-.promo-card h2 {
-  font-size: 26px;
-}
-
-.promo-card p {
-  font-size: 14px;
-}
-
-.kpi-icon svg {
-  width: 26px;
-  height: 26px;
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
 }
