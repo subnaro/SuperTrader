@@ -8,7 +8,7 @@ async function cargarDashboard() {
   if (!contenedor) return;
 
   try {
-    const respuesta = await fetch("dashboard.html");
+    const respuesta = await fetch("./dashboard.html");
 
     if (!respuesta.ok) {
       throw new Error("No se pudo cargar dashboard.html");
