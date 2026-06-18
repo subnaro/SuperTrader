@@ -1,6 +1,6 @@
 // perfil.js
 
-document.addEventListener("DOMContentLoaded", () => {
+(function iniciarPerfil() {
 
     const icons = {
         calendar: `<svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>`,
@@ -34,9 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const botones = document.querySelectorAll(".setting-item");
-
-    botones.forEach((boton) => {
+    document.querySelectorAll(".setting-item").forEach((boton) => {
 
         boton.addEventListener("click", () => {
 
@@ -59,14 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             else if (texto.includes("Cerrar sesión")) {
-
                 const confirmar = confirm("¿Deseas cerrar sesión?");
 
                 if (confirmar) {
                     alert("Sesión cerrada");
                     // window.location.href = "login.html";
                 }
-
             }
 
         });
@@ -81,4 +77,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-});
+})();
