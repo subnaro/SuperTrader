@@ -404,3 +404,117 @@
     font-size: 60px;
   }
 }
+
+/* ================= AJUSTE ESCALA DASHBOARD ================= */
+
+.modulo-contenido {
+  margin-top: 18px;
+}
+
+.dashboard-welcome {
+  margin-bottom: 20px;
+}
+
+.dashboard-welcome h1 {
+  font-size: 27px;
+}
+
+.dashboard-welcome p {
+  font-size: 14px;
+}
+
+.dashboard-kpis {
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.kpi-card {
+  min-height: 140px;
+  padding: 18px;
+  gap: 15px;
+}
+
+.kpi-icon {
+  width: 48px;
+  height: 48px;
+  flex-basis: 48px;
+  font-size: 22px;
+}
+
+.kpi-card span {
+  font-size: 11px;
+  margin-bottom: 7px;
+}
+
+.kpi-card h2 {
+  font-size: 27px;
+}
+
+.kpi-card p {
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+.progress-line {
+  margin: 12px 0 18px;
+}
+
+.dashboard-grid {
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.panel-card {
+  padding: 18px;
+}
+
+.panel-head {
+  padding-bottom: 14px;
+}
+
+.panel-head h3 {
+  font-size: 16px;
+}
+
+.signal-row {
+  min-height: 60px;
+}
+
+.live-row,
+.news-row {
+  min-height: 62px;
+}
+
+.dashboard-bottom {
+  gap: 14px;
+}
+
+.course-row {
+  min-height: 70px;
+}
+
+.course-img {
+  height: 42px;
+}
+
+.promo-card {
+  min-height: 220px;
+  padding: 30px 40px;
+  grid-template-columns: 190px 1fr;
+}
+
+.promo-logo {
+  font-size: 70px;
+}
+
+.promo-logo::after {
+  font-size: 60px;
+}
+
+.promo-card h2 {
+  font-size: 26px;
+}
+
+.promo-card p {
+  font-size: 14px;
+}
