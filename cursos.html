@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cursos | SuperTrader Academy</title>
+
+  <link rel="stylesheet" href="cursos.css" />
+  <script src="cursos.js" defer></script>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+
+<body>
+  <main class="courses-page">
+    <header class="courses-header">
+      <div>
+        <span class="eyebrow">SuperTrader Academy</span>
+        <h1>Mis cursos</h1>
+        <p>Continuá tu formación y desbloqueá certificaciones.</p>
+      </div>
+
+      <select class="course-select">
+        <option>Todos los cursos</option>
+        <option>En progreso</option>
+        <option>Finalizados</option>
+        <option>Pendientes</option>
+      </select>
+    </header>
+
+    <section class="courses-stats">
+      <article class="course-stat">
+        <i class="fa-solid fa-book-open"></i>
+        <div>
+          <span>Cursos activos</span>
+          <strong>3</strong>
+          <small>En progreso</small>
+        </div>
+      </article>
+
+      <article class="course-stat">
+        <i class="fa-regular fa-circle-play"></i>
+        <div>
+          <span>Videos vistos</span>
+          <strong>42</strong>
+          <small>Total acumulado</small>
+        </div>
+      </article>
+
+      <article class="course-stat">
+        <i class="fa-solid fa-award"></i>
+        <div>
+          <span>Cursos finalizados</span>
+          <strong>2</strong>
+          <small>¡Buen trabajo!</small>
+        </div>
+      </article>
+
+      <article class="course-stat">
+        <i class="fa-solid fa-file-certificate"></i>
+        <div>
+          <span>Certificados disponibles</span>
+          <strong>2</strong>
+          <small>Listos para descargar</small>
+        </div>
+      </article>
+    </section>
+
+    <section class="course-filters">
+      <button class="filter-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="progreso">En progreso</button>
+      <button class="filter-btn" data-filter="finalizado">Finalizados</button>
+      <button class="filter-btn" data-filter="pendiente">Pendientes</button>
+    </section>
+
+    <section class="courses-grid">
+      <article class="course-card" data-status="progreso">
+        <div class="course-image trading">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+        </div>
+
+        <div class="course-content">
+          <span class="level basic">Básico</span>
+          <h3>Trading desde cero</h3>
+          <p>Aprendé los fundamentos del trading desde lo más básico.</p>
+
+          <div class="course-meta">
+            <span><i class="fa-regular fa-circle-play"></i> 12 videos</span>
+            <span><i class="fa-regular fa-clock"></i> 4h 30m</span>
+          </div>
+
+          <strong class="progress-label green">75% completado</strong>
+          <div class="progress-bar">
+            <span style="width:75%"></span>
+          </div>
+
+          <button class="course-btn outline">
+            <i class="fa-solid fa-play"></i>
+            Continuar
+          </button>
+        </div>
+      </article>
+
+      <article class="course-card" data-status="finalizado">
+        <div class="course-image risk">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <div class="course-content">
+          <span class="level intermediate">Intermedio</span>
+          <h3>Gestión de riesgo</h3>
+          <p>Aprendé a proteger tu capital y gestionar el riesgo.</p>
+
+          <div class="course-meta">
+            <span><i class="fa-regular fa-circle-play"></i> 8 videos</span>
+            <span><i class="fa-regular fa-clock"></i> 2h 10m</span>
+          </div>
+
+          <strong class="progress-label green">100% completado</strong>
+          <div class="progress-bar">
+            <span style="width:100%"></span>
+          </div>
+
+          <button class="course-btn filled">
+            <i class="fa-solid fa-trophy"></i>
+            Rendir prueba
+          </button>
+        </div>
+      </article>
+
+      <article class="course-card" data-status="progreso">
+        <div class="course-image gold">
+          <i class="fa-solid fa-coins"></i>
+        </div>
+
+        <div class="course-content">
+          <span class="level advanced">Avanzado</span>
+          <h3>Estrategias con Oro</h3>
+          <p>Estrategias avanzadas para operar XAU/USD con precisión.</p>
+
+          <div class="course-meta">
+            <span><i class="fa-regular fa-circle-play"></i> 10 videos</span>
+            <span><i class="fa-regular fa-clock"></i> 3h 20m</span>
+          </div>
+
+          <strong class="progress-label yellow">35% completado</strong>
+          <div class="progress-bar">
+            <span style="width:35%"></span>
+          </div>
+
+          <button class="course-btn outline">
+            <i class="fa-solid fa-play"></i>
+            Continuar
+          </button>
+        </div>
+      </article>
+
+      <article class="course-card" data-status="progreso">
+        <div class="course-image analysis">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <div class="course-content">
+          <span class="level intermediate">Intermedio</span>
+          <h3>Análisis técnico</h3>
+          <p>Dominá el análisis técnico y aprendé a leer los mercados.</p>
+
+          <div class="course-meta">
+            <span><i class="fa-regular fa-circle-play"></i> 15 videos</span>
+            <span><i class="fa-regular fa-clock"></i> 5h 40m</span>
+          </div>
+
+          <strong class="progress-label green">60% completado</strong>
+          <div class="progress-bar">
+            <span style="width:60%"></span>
+          </div>
+
+          <button class="course-btn outline">
+            <i class="fa-solid fa-play"></i>
+            Continuar
+          </button>
+        </div>
+      </article>
+
+      <article class="course-card" data-status="progreso">
+        <div class="course-image mindset">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <div class="course-content">
+          <span class="level advanced">Avanzado</span>
+          <h3>Psicología del trader</h3>
+          <p>Controlá tus emociones y desarrollá mentalidad ganadora.</p>
+
+          <div class="course-meta">
+            <span><i class="fa-regular fa-circle-play"></i> 9 videos</span>
+            <span><i class="fa-regular fa-clock"></i> 3h 15m</span>
+          </div>
+
+          <strong class="progress-label yellow">20% completado</strong>
+          <div class="progress-bar">
+            <span style="width:20%"></span>
+          </div>
+
+          <button class="course-btn outline">
+            <i class="fa-solid fa-play"></i>
+            Continuar
+          </button>
+        </div>
+      </article>
+
+      <article class="course-card locked" data-status="pendiente">
+        <div class="course-image crypto">
+          <i class="fa-brands fa-bitcoin"></i>
+        </div>
+
+        <div class="course-content">
+          <span class="level intermediate">Intermedio</span>
+          <h3>Trading de Criptomonedas</h3>
+          <p>Aprendé a operar criptomonedas de forma segura y rentable.</p>
+
+          <div class="course-meta">
+            <span><i class="fa-regular fa-circle-play"></i> 11 videos</span>
+            <span><i class="fa-regular fa-clock"></i> 4h 05m</span>
+          </div>
+
+          <strong class="progress-label muted">0% completado</strong>
+          <div class="progress-bar">
+            <span style="width:0%"></span>
+          </div>
+
+          <button class="course-btn disabled" disabled>
+            <i class="fa-solid fa-lock"></i>
+            Bloqueado
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <footer class="courses-footer">
+      <i class="fa-solid fa-circle-info"></i>
+      Completá todos los videos para desbloquear la prueba final y obtener tu certificado.
+    </footer>
+  </main>
+</body>
+</html>
