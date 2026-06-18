@@ -3,7 +3,6 @@ const menuMobile = document.getElementById("menuMobile");
 const menuItems = document.querySelectorAll(".menu-item");
 const moduloContenido = document.getElementById("moduloContenido");
 
-// Archivos que va a cargar cada botón del menú
 const modulos = {
   Dashboard: {
     html: "dashboard.html",
@@ -37,19 +36,21 @@ const modulos = {
   },
 };
 
-// Menú mobile
 menuMobile.addEventListener("click", () => {
   sidebar.classList.toggle("active");
 });
 
-// Cargar módulo
 function cargarModulo(nombreModulo) {
   const modulo = modulos[nombreModulo];
 
-  if (!modulo) {
-    console.warn("No existe configuración para:", nombreModulo);
-    return;
-  }
+  if (!modulo) return;
+
+  moduloContenido.innerHTML = `
+    <div class="module-loader">
+      <div class="loader-ring"></div>
+      <p>Cargando ${nombreModulo}...</p>
+    </div>
+  `;
 
   fetch(modulo.html)
     .then((response) => {
@@ -60,20 +61,14 @@ function cargarModulo(nombreModulo) {
       return response.text();
     })
     .then((html) => {
-      moduloContenido.innerHTML = html;
-
-      cargarCSS(modulo.css);
-      cargarJS(modulo.js);
+      cargarCSS(modulo.css, () => {
+        moduloContenido.innerHTML = html;
+        cargarJS(modulo.js);
+      });
     })
     .catch((error) => {
       moduloContenido.innerHTML = `
-        <div style="
-          padding: 30px;
-          color: white;
-          background: #111;
-          border: 1px solid rgba(255,255,255,.12);
-          border-radius: 14px;
-        ">
+        <div class="module-error">
           <h2>Módulo no encontrado</h2>
           <p>Tenés que crear el archivo: <b>${modulo.html}</b></p>
         </div>
@@ -83,21 +78,34 @@ function cargarModulo(nombreModulo) {
     });
 }
 
-// Cargar CSS sin repetirlo
-function cargarCSS(rutaCSS) {
+function cargarCSS(rutaCSS, callback) {
   const idCSS = `css-${rutaCSS}`;
 
-  if (document.getElementById(idCSS)) return;
+  const cssExistente = document.getElementById(idCSS);
+
+  if (cssExistente) {
+    callback?.();
+    return;
+  }
 
   const link = document.createElement("link");
+
   link.id = idCSS;
   link.rel = "stylesheet";
   link.href = rutaCSS;
 
+  link.onload = () => {
+    callback?.();
+  };
+
+  link.onerror = () => {
+    console.warn(`No se pudo cargar el CSS: ${rutaCSS}`);
+    callback?.();
+  };
+
   document.head.appendChild(link);
 }
 
-// Cargar JS reiniciando el módulo
 function cargarJS(rutaJS) {
   const idJS = `js-${rutaJS}`;
 
@@ -114,7 +122,6 @@ function cargarJS(rutaJS) {
   document.body.appendChild(script);
 }
 
-// Click en botones del menú
 menuItems.forEach((item) => {
   item.addEventListener("click", () => {
     menuItems.forEach((btn) => btn.classList.remove("active"));
@@ -130,7 +137,6 @@ menuItems.forEach((item) => {
   });
 });
 
-// Cerrar sidebar en mobile al tocar afuera
 document.addEventListener("click", (event) => {
   const clickInsideSidebar = sidebar.contains(event.target);
   const clickOnMenuButton = menuMobile.contains(event.target);
@@ -144,7 +150,6 @@ document.addEventListener("click", (event) => {
   }
 });
 
-// Cargar Dashboard por defecto al entrar
 document.addEventListener("DOMContentLoaded", () => {
   cargarModulo("Dashboard");
 });
