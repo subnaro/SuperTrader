@@ -144,12 +144,6 @@ function botonesDemo() {
     });
 }
 
-    if (btnLogin) {
-        btnLogin.addEventListener("click", () => {
-            console.log("Acceder");
-        });
-    }
-
     if (btnOutline) {
         btnOutline.addEventListener("click", () => {
             const programas = document.querySelector("#programas");
