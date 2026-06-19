@@ -91,9 +91,9 @@ main {
 .header {
     width: calc(100% - 80px);
     max-width: 1760px;
-    height: 92px;
-    margin: 24px auto 0;
-    padding: 0 46px;
+    height: 82px;
+    margin: 20px auto 0;
+    padding: 0 42px;
     border: 1px solid var(--border);
     border-radius: 18px;
     background: rgba(5, 8, 10, .76);
@@ -105,12 +105,11 @@ main {
         0 24px 80px rgba(0,0,0,.38),
         inset 0 1px 0 rgba(255,255,255,.04);
     position: relative;
-    top: auto;
     z-index: 50;
 }
 
 .logo img {
-    height: 56px;
+    height: 50px;
     display: block;
     object-fit: contain;
     filter: drop-shadow(0 0 18px rgba(226,170,61,.18));
@@ -140,7 +139,7 @@ main {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -35px;
+    bottom: -30px;
     height: 2px;
     border-radius: 99px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
@@ -154,8 +153,8 @@ main {
 
 .btn-login,
 .btn-register {
-    height: 50px;
-    padding: 0 24px;
+    height: 48px;
+    padding: 0 22px;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 800;
@@ -195,12 +194,12 @@ main {
 .hero {
     width: calc(100% - 120px);
     max-width: 1660px;
-    min-height: 520px;
-    margin: 38px auto 0;
+    min-height: 430px;
+    margin: 24px auto 0;
     display: grid;
     grid-template-columns: .92fr 1.08fr;
     align-items: center;
-    gap: 34px;
+    gap: 30px;
 }
 
 .hero-left {
@@ -211,31 +210,31 @@ main {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 11px 18px;
-    margin-bottom: 26px;
+    padding: 9px 16px;
+    margin-bottom: 20px;
     border-radius: 999px;
     border: 1px solid rgba(255,255,255,.11);
     background: rgba(255,255,255,.035);
     color: rgba(255,255,255,.78);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 800;
     letter-spacing: .8px;
     text-transform: uppercase;
 }
 
 .hero-badge span {
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--gold);
     box-shadow: 0 0 18px rgba(226,170,61,.9);
 }
 
 .hero h1 {
-    font-size: clamp(48px, 4.4vw, 70px);
-    line-height: 1.02;
+    font-size: clamp(46px, 4.1vw, 64px);
+    line-height: 1;
     letter-spacing: -3px;
-    margin-bottom: 28px;
+    margin-bottom: 22px;
 }
 
 .hero h1 strong {
@@ -253,21 +252,21 @@ main {
 .hero-left > p {
     max-width: 610px;
     color: var(--muted);
-    font-size: 18px;
-    line-height: 1.75;
-    margin-bottom: 38px;
+    font-size: 17px;
+    line-height: 1.65;
+    margin-bottom: 28px;
 }
 
 .hero-buttons {
     display: flex;
-    gap: 18px;
-    margin-bottom: 46px;
+    gap: 16px;
+    margin-bottom: 28px;
 }
 
 .btn-primary,
 .btn-secondary {
-    height: 58px;
-    padding: 0 28px;
+    height: 54px;
+    padding: 0 26px;
     border-radius: 12px;
     font-size: 15px;
     font-weight: 900;
@@ -288,12 +287,12 @@ main {
 .hero-features {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    gap: 14px;
 }
 
 .feature {
-    min-height: 118px;
-    padding: 18px;
+    min-height: 92px;
+    padding: 14px;
     border-radius: 16px;
     background: rgba(255,255,255,.035);
     border: 1px solid rgba(255,255,255,.08);
@@ -301,39 +300,39 @@ main {
 }
 
 .feature-icon {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 14px;
+    border-radius: 13px;
     background: rgba(226,170,61,.12);
     border: 1px solid rgba(226,170,61,.18);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .feature-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     stroke: #f0c96c;
 }
 
 .feature h3 {
     font-size: 14px;
-    margin-bottom: 7px;
+    margin-bottom: 5px;
 }
 
 .feature p {
     font-size: 13px;
     color: rgba(255,255,255,.58);
-    line-height: 1.45;
+    line-height: 1.35;
 }
 
 
 /* ================= HERO RIGHT ================= */
 
 .hero-right {
-    min-height: 500px;
+    min-height: 400px;
     position: relative;
     display: grid;
     place-items: center;
@@ -343,8 +342,8 @@ main {
 .hero-right::before {
     content: "";
     position: absolute;
-    width: 760px;
-    height: 420px;
+    width: 700px;
+    height: 360px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(226,170,61,.24), transparent 64%);
     filter: blur(8px);
@@ -366,13 +365,13 @@ main {
 }
 
 .hero-logo {
-    width: 430px;
-    max-width: 68%;
-    max-height: 430px;
+    width: 390px;
+    max-width: 66%;
+    max-height: 390px;
     object-fit: contain;
     position: relative;
     z-index: 4;
-    top: -10px;
+    top: -8px;
     left: 0;
     filter:
         drop-shadow(0 0 34px rgba(226,170,61,.34))
@@ -384,7 +383,7 @@ main {
 
 .chart-bg {
     position: absolute;
-    inset: 55px 70px;
+    inset: 40px 64px;
     z-index: 1;
     opacity: .9;
     mask-image: radial-gradient(circle at center, black 0%, transparent 74%);
@@ -455,8 +454,8 @@ main {
 .floating-card {
     position: absolute;
     z-index: 6;
-    min-width: 158px;
-    padding: 16px 18px;
+    min-width: 148px;
+    padding: 14px 16px;
     border-radius: 18px;
     background: rgba(8, 11, 13, .74);
     border: 1px solid rgba(226,170,61,.24);
@@ -467,22 +466,22 @@ main {
 
 .floating-card span {
     display: block;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 900;
     letter-spacing: 1px;
     color: rgba(255,255,255,.56);
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 .floating-card strong {
-    font-size: 21px;
+    font-size: 20px;
     color: #fff;
 }
 
 .floating-card small {
     display: block;
-    margin-top: 7px;
-    font-size: 13px;
+    margin-top: 6px;
+    font-size: 12px;
     font-weight: 900;
 }
 
@@ -495,18 +494,18 @@ main {
 }
 
 .card-eur {
-    top: 80px;
+    top: 62px;
     left: 95px;
 }
 
 .card-btc {
-    top: 145px;
+    top: 125px;
     right: 82px;
     animation-duration: 5.6s;
 }
 
 .card-nas {
-    bottom: 95px;
+    bottom: 72px;
     left: 115px;
     animation-duration: 5.2s;
 }
@@ -516,7 +515,7 @@ main {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-16px);
+        transform: translateY(-14px);
     }
 }
 
@@ -526,8 +525,8 @@ main {
 .stats {
     width: calc(100% - 80px);
     max-width: 1760px;
-    margin: 10px auto 76px;
-    padding: 30px 34px;
+    margin: 8px auto 46px;
+    padding: 22px 30px;
     border-radius: 22px;
     border: 1px solid var(--border);
     background:
@@ -543,7 +542,7 @@ main {
 
 .stat-card {
     text-align: center;
-    padding: 6px 18px;
+    padding: 4px 16px;
     border-right: 1px solid rgba(255,255,255,.08);
 }
 
@@ -552,10 +551,10 @@ main {
 }
 
 .stat-card h2 {
-    font-size: 34px;
+    font-size: 31px;
     line-height: 1;
     color: var(--gold-light);
-    margin-bottom: 9px;
+    margin-bottom: 7px;
     opacity: 0;
     transform: translateY(14px);
     transition: .65s ease;
@@ -567,7 +566,7 @@ main {
 }
 
 .stat-card p {
-    font-size: 14px;
+    font-size: 13px;
     color: rgba(255,255,255,.62);
 }
 
@@ -577,20 +576,20 @@ main {
 .intro-videos {
     width: calc(100% - 120px);
     max-width: 1660px;
-    margin: 0 auto 70px;
-    padding-top: 20px;
+    margin: 0 auto 54px;
+    padding-top: 0;
 }
 
 .intro-header {
     max-width: 720px;
-    margin-bottom: 34px;
+    margin-bottom: 24px;
 }
 
 .intro-header > span,
 .support-card span {
     display: inline-flex;
     padding: 7px 11px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
     border-radius: 8px;
     color: var(--gold-light);
     background: rgba(226,170,61,.1);
@@ -602,17 +601,17 @@ main {
 
 .intro-header h2,
 .support-card h2 {
-    font-size: 42px;
-    line-height: 1.08;
+    font-size: 40px;
+    line-height: 1.06;
     letter-spacing: -1.8px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .intro-header p,
 .support-card p {
     color: var(--muted);
     font-size: 16px;
-    line-height: 1.75;
+    line-height: 1.65;
 }
 
 .video-grid {
@@ -640,7 +639,7 @@ main {
 }
 
 .video-box {
-    height: 178px;
+    height: 230px;
     display: grid;
     place-items: center;
     position: relative;
@@ -671,8 +670,8 @@ main {
 }
 
 .video-box svg {
-    width: 54px;
-    height: 54px;
+    width: 58px;
+    height: 58px;
     stroke: #060606;
     fill: var(--gold-light);
     position: relative;
@@ -681,7 +680,7 @@ main {
 }
 
 .video-content {
-    padding: 22px;
+    padding: 20px;
 }
 
 .video-content span {
@@ -690,21 +689,21 @@ main {
     font-size: 11px;
     font-weight: 900;
     letter-spacing: 1px;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 }
 
 .video-content h3 {
     font-size: 18px;
     line-height: 1.25;
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 }
 
 .video-content p {
-    min-height: 66px;
+    min-height: 58px;
     color: rgba(255,255,255,.62);
-    line-height: 1.55;
+    line-height: 1.5;
     font-size: 14px;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .btn-subscribe {
@@ -722,11 +721,11 @@ main {
 .support-section {
     width: calc(100% - 120px);
     max-width: 1660px;
-    margin: 0 auto 70px;
+    margin: 0 auto 60px;
 }
 
 .support-card {
-    padding: 34px;
+    padding: 30px;
     border-radius: 24px;
     border: 1px solid var(--border);
     background:
@@ -786,11 +785,11 @@ main {
 
 .ticker {
     position: relative;
-    margin-top: 30px;
+    margin-top: 20px;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 58px;
+    height: 56px;
     z-index: 80;
     overflow: hidden;
     border-top: 1px solid rgba(226,170,61,.14);
@@ -878,15 +877,19 @@ main {
     .video-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .video-box {
+        height: 240px;
+    }
 }
 
 @media (max-width: 1050px) {
     .header {
         height: auto;
-        min-height: 92px;
+        min-height: 86px;
         flex-wrap: wrap;
         gap: 18px;
-        padding: 20px 24px;
+        padding: 18px 24px;
     }
 
     .menu {
@@ -903,8 +906,8 @@ main {
 
     .hero {
         grid-template-columns: 1fr;
-        margin-top: 44px;
-        gap: 10px;
+        margin-top: 36px;
+        gap: 8px;
     }
 
     .hero-left {
@@ -924,18 +927,18 @@ main {
     }
 
     .hero-right {
-        min-height: 520px;
+        min-height: 430px;
     }
 
     .stats {
         width: calc(100% - 48px);
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 18px;
     }
 
     .stat-card {
         border-right: none;
-        padding: 16px;
+        padding: 14px;
         border-radius: 16px;
         background: rgba(255,255,255,.025);
     }
@@ -964,7 +967,7 @@ main {
     }
 
     .logo img {
-        height: 48px;
+        height: 46px;
     }
 
     .header-buttons {
@@ -984,18 +987,18 @@ main {
 
     .hero {
         width: calc(100% - 26px);
-        margin-top: 38px;
+        margin-top: 34px;
         min-height: auto;
     }
 
     .hero h1 {
-        font-size: 44px;
+        font-size: 42px;
         letter-spacing: -2.2px;
     }
 
     .hero-left > p {
         font-size: 16px;
-        line-height: 1.7;
+        line-height: 1.6;
     }
 
     .hero-buttons {
@@ -1012,11 +1015,11 @@ main {
     }
 
     .hero-right {
-        min-height: 420px;
+        min-height: 390px;
     }
 
     .hero-logo {
-        width: min(360px, 78%);
+        width: min(340px, 78%);
     }
 
     .floating-card {
@@ -1029,17 +1032,17 @@ main {
     }
 
     .card-eur {
-        top: 56px;
+        top: 50px;
         left: 4px;
     }
 
     .card-btc {
-        top: 150px;
+        top: 135px;
         right: 0;
     }
 
     .card-nas {
-        bottom: 72px;
+        bottom: 62px;
         left: 20px;
     }
 
@@ -1050,7 +1053,8 @@ main {
     .stats {
         width: calc(100% - 26px);
         grid-template-columns: 1fr;
-        margin-top: 22px;
+        margin-top: 18px;
+        margin-bottom: 40px;
     }
 
     .intro-videos,
@@ -1060,7 +1064,7 @@ main {
 
     .intro-header h2,
     .support-card h2 {
-        font-size: 32px;
+        font-size: 31px;
     }
 
     .video-grid {
@@ -1068,11 +1072,11 @@ main {
     }
 
     .video-box {
-        height: 190px;
+        height: 210px;
     }
 
     .support-card {
-        padding: 26px;
+        padding: 24px;
     }
 
     .toast-proximamente {
