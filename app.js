@@ -1,3 +1,5 @@
+// ================= PARTICULAS =================
+
 const canvas = document.getElementById("particles");
 const ctx = canvas ? canvas.getContext("2d") : null;
 
@@ -9,8 +11,6 @@ const mouse = {
     radius: 120
 };
 
-// ================= PARTICULAS =================
-
 function resizeCanvas() {
     if (!canvas) return;
 
@@ -19,8 +19,7 @@ function resizeCanvas() {
 }
 
 function getParticleAmount() {
-    const isMobile = window.innerWidth < 768;
-    return isMobile ? 55 : 130;
+    return window.innerWidth < 768 ? 55 : 130;
 }
 
 class Particle {
@@ -36,19 +35,14 @@ class Particle {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x < 0 || this.x > canvas.width) {
-            this.speedX *= -1;
-        }
-
-        if (this.y < 0 || this.y > canvas.height) {
-            this.speedY *= -1;
-        }
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
     }
 
     draw() {
         if (!ctx) return;
 
-        ctx.fillStyle = "rgba(0, 255, 136, 0.75)";
+        ctx.fillStyle = "rgba(0,255,136,.75)";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -60,9 +54,7 @@ function createParticles() {
 
     particles = [];
 
-    const amount = getParticleAmount();
-
-    for (let i = 0; i < amount; i++) {
+    for (let i = 0; i < getParticleAmount(); i++) {
         particles.push(new Particle());
     }
 }
@@ -72,6 +64,7 @@ function connectParticles() {
 
     for (let a = 0; a < particles.length; a++) {
         for (let b = a + 1; b < particles.length; b++) {
+
             const dx = particles[a].x - particles[b].x;
             const dy = particles[a].y - particles[b].y;
             const distance = Math.sqrt(dx * dx + dy * dy);
@@ -79,7 +72,7 @@ function connectParticles() {
             if (distance < 160) {
                 const opacity = 1 - distance / 160;
 
-                ctx.strokeStyle = `rgba(0, 255, 136, ${opacity * 0.08})`;
+                ctx.strokeStyle = `rgba(0,255,136,${opacity * .08})`;
                 ctx.lineWidth = 1;
 
                 ctx.beginPath();
@@ -92,25 +85,31 @@ function connectParticles() {
 }
 
 function mouseEffect() {
+
     if (mouse.x === null || mouse.y === null) return;
 
     particles.forEach((particle) => {
+
         const dx = mouse.x - particle.x;
         const dy = mouse.y - particle.y;
+
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < mouse.radius) {
+
             const angle = Math.atan2(dy, dx);
             const force = (mouse.radius - distance) / mouse.radius;
 
             particle.x -= Math.cos(angle) * force * 1.2;
             particle.y -= Math.sin(angle) * force * 1.2;
         }
+
     });
 }
 
 function animate() {
-    if (!ctx || !canvas) return;
+
+    if (!ctx) return;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -126,7 +125,6 @@ function animate() {
 }
 
 function iniciarParticulas() {
-    if (!canvas || !ctx) return;
 
     resizeCanvas();
     createParticles();
@@ -148,54 +146,53 @@ window.addEventListener("mouseleave", () => {
     mouse.y = null;
 });
 
-
-// ================= CLICK ANIMATION =================
+// ================= CLICK =================
 
 function configurarAnimacionClicks() {
-    document.querySelectorAll(".link-btn, .socials a").forEach((item) => {
+
+    document.querySelectorAll(".link-btn,.socials a").forEach(item => {
+
         item.addEventListener("click", () => {
+
             item.classList.add("clicked");
 
             setTimeout(() => {
                 item.classList.remove("clicked");
             }, 250);
+
         });
+
     });
+
 }
 
-
-// ================= MODAL COPY TRADING =================
+// ================= COPY TRADING =================
 
 function configurarModalCopyTrading() {
+
     const btnCopy = document.querySelector("#btnCopyTrading");
     const modal = document.querySelector("#modalCopy");
     const cerrar = document.querySelector("#cerrarModalCopy");
     const backdrop = document.querySelector("#modalCopyBackdrop");
 
-    if (btnCopy) {
-        btnCopy.addEventListener("click", abrirModalCopyTrading);
-    }
-
-    if (cerrar) {
-        cerrar.addEventListener("click", cerrarModalCopyTrading);
-    }
-
-    if (backdrop) {
-        backdrop.addEventListener("click", cerrarModalCopyTrading);
-    }
+    btnCopy?.addEventListener("click", abrirModalCopyTrading);
+    cerrar?.addEventListener("click", cerrarModalCopyTrading);
+    backdrop?.addEventListener("click", cerrarModalCopyTrading);
 
     document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && modal && modal.classList.contains("active")) {
+
+        if (event.key === "Escape" && modal?.classList.contains("active")) {
             cerrarModalCopyTrading();
         }
+
     });
+
 }
 
 async function abrirModalCopyTrading() {
+
     const modal = document.querySelector("#modalCopy");
     const contenido = document.querySelector("#copyTradingContent");
-
-    if (!modal || !contenido) return;
 
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
@@ -209,14 +206,10 @@ async function abrirModalCopyTrading() {
     `;
 
     try {
+
         await cargarCssCopyTrading();
 
         const respuesta = await fetch("copytrading.html");
-
-        if (!respuesta.ok) {
-            throw new Error("No se pudo cargar copytrading.html");
-        }
-
         const html = await respuesta.text();
 
         contenido.innerHTML = html;
@@ -224,59 +217,52 @@ async function abrirModalCopyTrading() {
 
         await cargarJsCopyTrading();
 
-    } catch (error) {
-        console.error(error);
+    } catch {
 
         contenido.innerHTML = `
             <div class="copy-error">
                 <h2>No se pudo cargar el módulo</h2>
-                <p>Revisá que existan copytrading.html, copytrading.css y copytrading.js en la misma carpeta.</p>
             </div>
         `;
     }
 }
 
 function cerrarModalCopyTrading() {
-    const modal = document.querySelector("#modalCopy");
 
-    if (!modal) return;
-
-    modal.classList.remove("active");
+    document.querySelector("#modalCopy")?.classList.remove("active");
     document.body.style.overflow = "";
+
 }
 
-
-// ================= CARGAR CSS COPY =================
-
 function cargarCssCopyTrading() {
-    return new Promise((resolve) => {
-        const existente = document.querySelector('link[data-copytrading-css="true"]');
 
-        if (existente) {
+    return new Promise(resolve => {
+
+        if (document.querySelector('[data-copytrading-css="true"]')) {
             resolve();
             return;
         }
 
         const link = document.createElement("link");
+
         link.rel = "stylesheet";
         link.href = "copytrading.css";
         link.dataset.copytradingCss = "true";
 
-        link.onload = () => resolve();
-        link.onerror = () => resolve();
+        link.onload = resolve;
 
         document.head.appendChild(link);
+
     });
+
 }
 
-
-// ================= CARGAR JS COPY =================
-
 function cargarJsCopyTrading() {
-    return new Promise((resolve) => {
-        const existente = document.querySelector('script[data-copytrading-js="true"]');
 
-        if (existente) {
+    return new Promise(resolve => {
+
+        if (document.querySelector('[data-copytrading-js="true"]')) {
+
             if (typeof iniciarCopyTrading === "function") {
                 iniciarCopyTrading();
             }
@@ -286,28 +272,54 @@ function cargarJsCopyTrading() {
         }
 
         const script = document.createElement("script");
+
         script.src = "copytrading.js";
         script.dataset.copytradingJs = "true";
 
         script.onload = () => {
+
             if (typeof iniciarCopyTrading === "function") {
                 iniciarCopyTrading();
             }
 
             resolve();
+
         };
 
-        script.onerror = () => resolve();
-
         document.body.appendChild(script);
+
     });
+
 }
 
+// ================= SOPORTE =================
+
+function configurarSoporte() {
+
+    const boton = document.getElementById("btnSoporte");
+    const toast = document.getElementById("toastSoporte");
+
+    if (!boton || !toast) return;
+
+    boton.addEventListener("click", () => {
+
+        toast.classList.add("active");
+
+        setTimeout(() => {
+            toast.classList.remove("active");
+        }, 2500);
+
+    });
+
+}
 
 // ================= INIT =================
 
 document.addEventListener("DOMContentLoaded", () => {
+
     iniciarParticulas();
     configurarAnimacionClicks();
     configurarModalCopyTrading();
+    configurarSoporte();
+
 });

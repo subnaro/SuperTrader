@@ -591,3 +591,27 @@ footer a:hover{
         right:12px;
     }
 }
+
+.toast-soporte{
+    position:fixed;
+    left:50%;
+    bottom:34px;
+    transform:translateX(-50%) translateY(20px);
+    z-index:10000;
+    padding:14px 22px;
+    border-radius:999px;
+    background:rgba(5,9,14,.96);
+    border:1px solid rgba(216,169,74,.65);
+    color:var(--gold-soft);
+    font-size:14px;
+    font-weight:800;
+    box-shadow:0 18px 45px rgba(0,0,0,.45), 0 0 24px rgba(216,169,74,.18);
+    opacity:0;
+    pointer-events:none;
+    transition:.25s ease;
+}
+
+.toast-soporte.active{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+}
