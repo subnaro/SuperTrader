@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     animarStats();
     animarEntradaSecciones();
     animarCardsFlotantes();
-    botonesDemo();
+    botonesWeb();
 
     if (window.lucide) {
         lucide.createIcons();
@@ -78,7 +78,7 @@ function animarStats() {
 
 function animarEntradaSecciones() {
     const elementos = document.querySelectorAll(
-        ".hero-left, .hero-right, .stat-card, .titulo-programas, .programa-card"
+        ".hero-left, .hero-right, .stat-card, .intro-header, .video-card, .support-card"
     );
 
     if (!elementos.length) return;
@@ -116,36 +116,23 @@ function animarCardsFlotantes() {
 
 // ================= BOTONES =================
 
-function botonesDemo() {
+function botonesWeb() {
     const btnPrimary = document.querySelector(".btn-primary");
     const btnSecondary = document.querySelector(".btn-secondary");
     const btnLogin = document.querySelector(".btn-login");
     const btnRegister = document.querySelector(".btn-register");
-    const btnOutline = document.querySelector(".btn-outline");
+    const btnSubscribe = document.querySelectorAll(".btn-subscribe");
+    const btnSupport = document.querySelector(".btn-support");
 
     if (btnPrimary) {
         btnPrimary.addEventListener("click", () => {
-            const programas = document.querySelector("#programas");
-
-            if (programas) {
-                programas.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
+            scrollASeccion("#introduccion");
         });
     }
 
     if (btnSecondary) {
         btnSecondary.addEventListener("click", () => {
-            const programas = document.querySelector("#programas");
-
-            if (programas) {
-                programas.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
+            scrollASeccion("#introduccion");
         });
     }
 
@@ -161,16 +148,49 @@ function botonesDemo() {
         });
     }
 
-    if (btnOutline) {
-        btnOutline.addEventListener("click", () => {
-            const programas = document.querySelector("#programas");
+    btnSubscribe.forEach(boton => {
+        boton.addEventListener("click", () => {
+            mostrarProximamente();
+        });
+    });
 
-            if (programas) {
-                programas.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
+    if (btnSupport) {
+        btnSupport.addEventListener("click", () => {
+            mostrarProximamente();
         });
     }
+}
+
+
+// ================= HELPERS =================
+
+function scrollASeccion(selector) {
+    const seccion = document.querySelector(selector);
+
+    if (!seccion) return;
+
+    seccion.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+
+let toastTimer = null;
+
+function mostrarProximamente() {
+    const toast = document.querySelector("#toastProximamente");
+
+    if (!toast) {
+        alert("Próximamente");
+        return;
+    }
+
+    toast.classList.add("mostrar");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove("mostrar");
+    }, 1800);
 }
