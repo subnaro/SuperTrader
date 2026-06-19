@@ -1,5 +1,5 @@
 const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
+const ctx = canvas ? canvas.getContext("2d") : null;
 
 let particles = [];
 
@@ -9,7 +9,11 @@ const mouse = {
     radius: 120
 };
 
+// ================= PARTICULAS =================
+
 function resizeCanvas() {
+    if (!canvas) return;
+
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
@@ -42,6 +46,8 @@ class Particle {
     }
 
     draw() {
+        if (!ctx) return;
+
         ctx.fillStyle = "rgba(0, 255, 136, 0.75)";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -50,6 +56,8 @@ class Particle {
 }
 
 function createParticles() {
+    if (!canvas) return;
+
     particles = [];
 
     const amount = getParticleAmount();
@@ -60,6 +68,8 @@ function createParticles() {
 }
 
 function connectParticles() {
+    if (!ctx) return;
+
     for (let a = 0; a < particles.length; a++) {
         for (let b = a + 1; b < particles.length; b++) {
             const dx = particles[a].x - particles[b].x;
@@ -100,6 +110,8 @@ function mouseEffect() {
 }
 
 function animate() {
+    if (!ctx || !canvas) return;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach((particle) => {
@@ -111,6 +123,14 @@ function animate() {
     mouseEffect();
 
     requestAnimationFrame(animate);
+}
+
+function iniciarParticulas() {
+    if (!canvas || !ctx) return;
+
+    resizeCanvas();
+    createParticles();
+    animate();
 }
 
 window.addEventListener("resize", () => {
@@ -128,16 +148,166 @@ window.addEventListener("mouseleave", () => {
     mouse.y = null;
 });
 
-document.querySelectorAll(".link-btn, .socials a").forEach((item) => {
-    item.addEventListener("click", () => {
-        item.classList.add("clicked");
 
-        setTimeout(() => {
-            item.classList.remove("clicked");
-        }, 250);
+// ================= CLICK ANIMATION =================
+
+function configurarAnimacionClicks() {
+    document.querySelectorAll(".link-btn, .socials a").forEach((item) => {
+        item.addEventListener("click", () => {
+            item.classList.add("clicked");
+
+            setTimeout(() => {
+                item.classList.remove("clicked");
+            }, 250);
+        });
     });
-});
+}
 
-resizeCanvas();
-createParticles();
-animate();
+
+// ================= MODAL COPY TRADING =================
+
+function configurarModalCopyTrading() {
+    const btnCopy = document.querySelector("#btnCopyTrading");
+    const modal = document.querySelector("#modalCopy");
+    const cerrar = document.querySelector("#cerrarModalCopy");
+    const backdrop = document.querySelector("#modalCopyBackdrop");
+
+    if (btnCopy) {
+        btnCopy.addEventListener("click", abrirModalCopyTrading);
+    }
+
+    if (cerrar) {
+        cerrar.addEventListener("click", cerrarModalCopyTrading);
+    }
+
+    if (backdrop) {
+        backdrop.addEventListener("click", cerrarModalCopyTrading);
+    }
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && modal && modal.classList.contains("active")) {
+            cerrarModalCopyTrading();
+        }
+    });
+}
+
+async function abrirModalCopyTrading() {
+    const modal = document.querySelector("#modalCopy");
+    const contenido = document.querySelector("#copyTradingContent");
+
+    if (!modal || !contenido) return;
+
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    if (contenido.dataset.loaded === "true") return;
+
+    contenido.innerHTML = `
+        <div class="copy-loading">
+            Cargando Copy Trading...
+        </div>
+    `;
+
+    try {
+        await cargarCssCopyTrading();
+
+        const respuesta = await fetch("copytrading.html");
+
+        if (!respuesta.ok) {
+            throw new Error("No se pudo cargar copytrading.html");
+        }
+
+        const html = await respuesta.text();
+
+        contenido.innerHTML = html;
+        contenido.dataset.loaded = "true";
+
+        await cargarJsCopyTrading();
+
+    } catch (error) {
+        console.error(error);
+
+        contenido.innerHTML = `
+            <div class="copy-error">
+                <h2>No se pudo cargar el módulo</h2>
+                <p>Revisá que existan copytrading.html, copytrading.css y copytrading.js en la misma carpeta.</p>
+            </div>
+        `;
+    }
+}
+
+function cerrarModalCopyTrading() {
+    const modal = document.querySelector("#modalCopy");
+
+    if (!modal) return;
+
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+
+// ================= CARGAR CSS COPY =================
+
+function cargarCssCopyTrading() {
+    return new Promise((resolve) => {
+        const existente = document.querySelector('link[data-copytrading-css="true"]');
+
+        if (existente) {
+            resolve();
+            return;
+        }
+
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = "copytrading.css";
+        link.dataset.copytradingCss = "true";
+
+        link.onload = () => resolve();
+        link.onerror = () => resolve();
+
+        document.head.appendChild(link);
+    });
+}
+
+
+// ================= CARGAR JS COPY =================
+
+function cargarJsCopyTrading() {
+    return new Promise((resolve) => {
+        const existente = document.querySelector('script[data-copytrading-js="true"]');
+
+        if (existente) {
+            if (typeof iniciarCopyTrading === "function") {
+                iniciarCopyTrading();
+            }
+
+            resolve();
+            return;
+        }
+
+        const script = document.createElement("script");
+        script.src = "copytrading.js";
+        script.dataset.copytradingJs = "true";
+
+        script.onload = () => {
+            if (typeof iniciarCopyTrading === "function") {
+                iniciarCopyTrading();
+            }
+
+            resolve();
+        };
+
+        script.onerror = () => resolve();
+
+        document.body.appendChild(script);
+    });
+}
+
+
+// ================= INIT =================
+
+document.addEventListener("DOMContentLoaded", () => {
+    iniciarParticulas();
+    configurarAnimacionClicks();
+    configurarModalCopyTrading();
+});

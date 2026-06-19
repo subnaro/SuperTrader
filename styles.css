@@ -21,6 +21,10 @@ body{
     overflow-x:hidden;
 }
 
+button{
+    font-family:inherit;
+}
+
 #particles{
     position:fixed;
     inset:0;
@@ -92,11 +96,9 @@ body{
 .brand-logo img{
     width:180px;
     max-width:65vw;
-
     filter:
         drop-shadow(0 0 18px rgba(216,169,74,.18))
         drop-shadow(0 8px 25px rgba(0,0,0,.55));
-
     transition:.3s;
 }
 
@@ -163,6 +165,7 @@ h1{
         0 14px 30px rgba(0,0,0,.28);
     backdrop-filter:blur(14px);
     transition:.25s ease;
+    cursor:pointer;
 }
 
 .link-btn:hover{
@@ -401,6 +404,122 @@ footer a:hover{
     }
 }
 
+/* MODAL COPY TRADING */
+
+.modal-copy{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    padding:20px;
+}
+
+.modal-copy.active{
+    display:flex;
+}
+
+.modal-copy-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(14px);
+}
+
+.modal-copy-card{
+    position:relative;
+    z-index:2;
+    width:min(920px,100%);
+    max-height:90vh;
+    overflow-y:auto;
+    border-radius:28px;
+    padding:40px;
+    background:
+        radial-gradient(circle at 20% 0%, rgba(216,169,74,.16), transparent 34%),
+        linear-gradient(145deg, rgba(255,255,255,.055), transparent),
+        rgba(5,9,14,.96);
+    border:1px solid rgba(216,169,74,.22);
+    box-shadow:
+        0 40px 110px rgba(0,0,0,.66),
+        inset 0 1px 0 rgba(255,255,255,.05);
+    animation:modalCopyIn .25s ease;
+}
+
+.modal-copy-card::-webkit-scrollbar{
+    width:0;
+}
+
+.modal-copy-close{
+    position:absolute;
+    top:18px;
+    right:18px;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.055);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:.25s ease;
+    z-index:5;
+}
+
+.modal-copy-close:hover{
+    color:var(--gold-soft);
+    border-color:rgba(216,169,74,.55);
+    background:rgba(216,169,74,.10);
+    transform:rotate(90deg);
+}
+
+.modal-copy-close i{
+    font-size:20px;
+}
+
+.copytrading-content{
+    width:100%;
+}
+
+.copy-loading,
+.copy-error{
+    min-height:260px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:rgba(255,255,255,.65);
+}
+
+.copy-error{
+    flex-direction:column;
+    gap:12px;
+}
+
+.copy-error h2{
+    font-size:26px;
+    color:var(--gold-soft);
+}
+
+.copy-error p{
+    max-width:460px;
+    line-height:1.6;
+}
+
+@keyframes modalCopyIn{
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.98);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
 /* RESPONSIVE */
 
 @media(max-width:768px){
@@ -452,5 +571,23 @@ footer a:hover{
 
     .market-card{
         display:none;
+    }
+
+    .modal-copy{
+        padding:10px;
+        align-items:flex-start;
+    }
+
+    .modal-copy-card{
+        width:100%;
+        max-height:calc(100vh - 20px);
+        padding:30px 18px;
+        border-radius:24px;
+        margin-top:10px;
+    }
+
+    .modal-copy-close{
+        top:12px;
+        right:12px;
     }
 }
