@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperTrader</title>
+    <title>SuperTrader Academy</title>
 
     <link rel="stylesheet" href="web.css">
 
@@ -19,121 +19,228 @@
     <div class="page-bg"></div>
     <div class="gold-lines"></div>
 
-    <main class="link-page">
+    <header class="header">
+        <div class="logo">
+            <img src="supertrader.png" alt="SuperTrader">
+        </div>
 
-        <section class="link-hero">
 
-            <div class="market-card market-left">
-                <span>EUR/USD</span>
-                <strong>1.0842</strong>
-                <small class="up">▲ +0.24%</small>
-            </div>
+        <nav class="menu" id="mainMenu">
+            <a href="#inicio" class="activo">Inicio</a>
+            <a href="#academia">Academia</a>
+            <a href="#programas">Programas</a>
+            <a href="#comunidad">Comunidad</a>
+            <a href="#recursos">Recursos</a>
+            <a href="#sobre">Sobre nosotros</a>
+        </nav>
 
-            <div class="market-card market-right">
-                <span>NAS100</span>
-                <strong>19,842</strong>
-                <small class="up">▲ +1.12%</small>
-            </div>
+        <div class="header-buttons">
+            <button class="btn-login">Acceder</button>
+            <button class="btn-register">Unirme ahora <span>→</span></button>
+        </div>
+    </header>
 
-            <div class="market-card market-bottom">
-                <span>BTC/USD</span>
-                <strong>67,420</strong>
-                <small class="down">▼ -0.38%</small>
-            </div>
+    <main>
 
-            <div class="brand-center">
-                <img src="supertrader.png" alt="Super Trader" class="main-logo">
+        <section class="hero" id="inicio">
 
-                <div class="brand-line">
-                    <span>TU MENTOR</span>
-                    <i></i>
-                    <span>TU EDGE</span>
-                    <i></i>
-                    <span>TU LIBERTAD</span>
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <span></span>
+                    Academia de Trading Profesional
                 </div>
 
-                <div class="brand-divider"></div>
+                <h1>
+                    Domina los mercados.<br>
+                    <strong>Libera tu potencial.</strong>
+                </h1>
 
-                <div class="link-buttons">
-
-                    <button class="link-btn link-btn-primary" id="btnAprende">
-                        <span class="link-icon">
-                            <i data-lucide="graduation-cap"></i>
-                        </span>
-
-                        <strong>Aprende conmigo</strong>
-
-                        <span class="link-arrow">
-                            <i data-lucide="chevron-right"></i>
-                        </span>
-                    </button>
-
-                    <button class="link-btn" id="btnCopyTrading">
-                        <span class="link-icon">
-                            <i data-lucide="bar-chart-3"></i>
-                        </span>
-
-                        <strong>Copy Trading</strong>
-
-                        <span class="link-arrow">
-                            <i data-lucide="chevron-right"></i>
-                        </span>
-                    </button>
-
-                </div>
-
-                <div class="social-row">
-                    <a href="#" aria-label="YouTube">
-                        <i data-lucide="youtube"></i>
-                    </a>
-
-                    <a href="#" aria-label="TikTok">
-                        <i data-lucide="music-2"></i>
-                    </a>
-
-                    <a href="#" aria-label="Instagram">
-                        <i data-lucide="instagram"></i>
-                    </a>
-
-                    <a href="#" aria-label="Telegram">
-                        <i data-lucide="send"></i>
-                    </a>
-
-                    <a href="#" aria-label="WhatsApp">
-                        <i data-lucide="message-circle"></i>
-                    </a>
-                </div>
-
-                <p class="risk-text">
-                    El trading implica riesgos.
-                    <a href="#">Política de privacidad</a>
+                <p>
+                    En SuperTrader Academy formamos traders consistentes con educación
+                    de alto nivel, mentalidad ganadora y estrategias probadas.
                 </p>
+
+                <div class="hero-buttons">
+                    <button class="btn-primary">Empieza tu camino <span>→</span></button>
+                    <button class="btn-secondary">Ver programas</button>
+                </div>
+
+                <div class="hero-features">
+                    <div class="feature">
+                        <div class="feature-icon">
+    <i data-lucide="graduation-cap"></i>
+</div>
+                        <div>
+                            <h3>Educación Premium</h3>
+                            <p>Contenido de alto nivel</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">
+    <i data-lucide="chart-column"></i>
+</div>
+                        <div>
+                            <h3>Estrategias Probadas</h3>
+                            <p>Métodos que funcionan</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="feature-icon">
+    <i data-lucide="users"></i>
+</div>
+                        <div>
+                            <h3>Comunidad Exclusiva</h3>
+                            <p>Red de traders ganadores</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="chart-bg">
+                    <span class="candle c1"></span>
+                    <span class="candle c2"></span>
+                    <span class="candle c3"></span>
+                    <span class="candle c4"></span>
+                    <span class="candle c5"></span>
+                    <span class="candle c6"></span>
+                    <span class="candle c7"></span>
+                    <span class="candle c8"></span>
+                </div>
+
+                <div class="floating-card card-eur">
+                    <span>EUR/USD</span>
+                    <strong>1.0842</strong>
+                    <small class="up">+0.24%</small>
+                </div>
+
+                <div class="floating-card card-btc">
+                    <span>BTC/USD</span>
+                    <strong>67.420</strong>
+                    <small class="down">-0.38%</small>
+                </div>
+
+                <div class="floating-card card-nas">
+                    <span>NAS100</span>
+                    <strong>19.842</strong>
+                    <small class="up">+1.12%</small>
+                </div>
+
+                <img src="supertrader.png" alt="SuperTrader Academy" class="hero-logo">
             </div>
 
         </section>
 
-    </main>
-
-    <!-- MODAL COPY TRADING -->
-    <div class="modal-copy" id="modalCopy">
-        <div class="modal-copy-backdrop" id="modalCopyBackdrop"></div>
-
-        <div class="modal-copy-card">
-
-            <button class="modal-copy-close" id="cerrarModalCopy">
-                <i data-lucide="x"></i>
-            </button>
-
-            <div id="copyTradingContent" class="copytrading-content">
-                <!-- Acá se cargará copytrading.html desde web.js -->
+        <section class="stats">
+            <div class="stat-card">
+                <h2>+12.450</h2>
+                <p>Estudiantes</p>
             </div>
 
+            <div class="stat-card">
+                <h2>+85%</h2>
+                <p>Tasa de éxito</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>+3.2M USD</h2>
+                <p>Ganancias generadas</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>24/7</h2>
+                <p>Soporte y comunidad</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>4.9/5 ★</h2>
+                <p>Valoración promedio</p>
+            </div>
+        </section>
+
+        <section class="programas" id="programas">
+
+            <div class="titulo-programas">
+                <span>PROGRAMAS</span>
+
+                <h2>
+                    Elige tu camino<br>
+                    <strong>al éxito financiero</strong>
+                </h2>
+
+                <p>
+                    Programas diseñados para llevarte de cero a trader profesional
+                    con acompañamiento paso a paso.
+                </p>
+
+                <button class="btn-outline">Ver todos los programas <span>→</span></button>
+            </div>
+
+            <div class="cards-programas">
+
+                <article class="programa-card">
+                    <div class="programa-icon">
+    <i data-lucide="book-open"></i>
+</div>
+                    <span>NIVEL 1</span>
+                    <h3>Fundamentos del Trading</h3>
+                    <p>Aprende desde cero todo lo que necesitás para empezar a operar.</p>
+
+                    <div class="card-footer">
+                        <div class="barra"><div class="progreso p1"></div></div>
+                        <small>12 módulos</small>
+                    </div>
+                </article>
+
+                <article class="programa-card">
+                    <div class="programa-icon">
+    <i data-lucide="crosshair"></i>
+</div>
+                    <span>NIVEL 2</span>
+                    <h3>Estrategias Avanzadas</h3>
+                    <p>Domina estrategias profesionales y gestión del riesgo.</p>
+
+                    <div class="card-footer">
+                        <div class="barra"><div class="progreso p2"></div></div>
+                        <small>18 módulos</small>
+                    </div>
+                </article>
+
+                <article class="programa-card">
+                    <div class="programa-icon">
+    <i data-lucide="rocket"></i>
+</div>
+                    <span>NIVEL 3</span>
+                    <h3>Mentalidad & Alto Rendimiento</h3>
+                    <p>Desarrolla la mentalidad ganadora de los traders consistentes.</p>
+
+                    <div class="card-footer">
+                        <div class="barra"><div class="progreso p3"></div></div>
+                        <small>10 módulos</small>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <section class="ticker">
+        <div class="ticker-track">
+            <span>EUR/USD <strong>1.0842</strong> <em class="up">▲ +0.24%</em></span>
+            <span>NAS100 <strong>19.842</strong> <em class="up">▲ +1.12%</em></span>
+            <span>XAU/USD <strong>2.345</strong> <em class="up">▲ +0.35%</em></span>
+            <span>BTC/USD <strong>67.420</strong> <em class="down">▼ -0.38%</em></span>
+            <span>ETH/USD <strong>3.215</strong> <em class="up">▲ +0.71%</em></span>
+            <span>Ver mercados →</span>
         </div>
-    </div>
+    </section>
 
     <script>
-        lucide.createIcons();
-    </script>
+    lucide.createIcons();
+</script>
 
     <script src="web.js"></script>
 </body>

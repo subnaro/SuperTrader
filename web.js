@@ -6,8 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     animarStats();
     animarEntradaSecciones();
     animarCardsFlotantes();
-    configurarBotones();
-    configurarModalCopyTrading();
+    botonesDemo();
 
     if (window.lucide) {
         lucide.createIcons();
@@ -79,7 +78,7 @@ function animarStats() {
 
 function animarEntradaSecciones() {
     const elementos = document.querySelectorAll(
-        ".hero-left, .hero-right, .stat-card, .titulo-programas, .programa-card, .brand-center, .market-card"
+        ".hero-left, .hero-right, .stat-card, .titulo-programas, .programa-card"
     );
 
     if (!elementos.length) return;
@@ -105,7 +104,7 @@ function animarEntradaSecciones() {
 // ================= CARDS FLOTANTES =================
 
 function animarCardsFlotantes() {
-    const cards = document.querySelectorAll(".floating-card, .market-card");
+    const cards = document.querySelectorAll(".floating-card");
 
     if (!cards.length) return;
 
@@ -115,163 +114,63 @@ function animarCardsFlotantes() {
 }
 
 
-// ================= BOTONES PRINCIPALES =================
+// ================= BOTONES =================
 
-function configurarBotones() {
-    const btnAprende = document.querySelector("#btnAprende");
-    const btnCopyTrading = document.querySelector("#btnCopyTrading");
+function botonesDemo() {
+    const btnPrimary = document.querySelector(".btn-primary");
+    const btnSecondary = document.querySelector(".btn-secondary");
+    const btnLogin = document.querySelector(".btn-login");
+    const btnRegister = document.querySelector(".btn-register");
+    const btnOutline = document.querySelector(".btn-outline");
 
-    if (btnAprende) {
-        btnAprende.addEventListener("click", () => {
+    if (btnPrimary) {
+        btnPrimary.addEventListener("click", () => {
+            const programas = document.querySelector("#programas");
+
+            if (programas) {
+                programas.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
+    }
+
+    if (btnSecondary) {
+        btnSecondary.addEventListener("click", () => {
+            const programas = document.querySelector("#programas");
+
+            if (programas) {
+                programas.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
+    }
+
+    if (btnLogin) {
+        btnLogin.addEventListener("click", () => {
             window.location.href = "academia.html";
         });
     }
 
-    if (btnCopyTrading) {
-        btnCopyTrading.addEventListener("click", () => {
-            abrirModalCopyTrading();
+    if (btnRegister) {
+        btnRegister.addEventListener("click", () => {
+            window.location.href = "academia.html";
         });
     }
-}
 
+    if (btnOutline) {
+        btnOutline.addEventListener("click", () => {
+            const programas = document.querySelector("#programas");
 
-// ================= MODAL COPY TRADING =================
-
-function configurarModalCopyTrading() {
-    const modal = document.querySelector("#modalCopy");
-    const cerrar = document.querySelector("#cerrarModalCopy");
-    const backdrop = document.querySelector("#modalCopyBackdrop");
-
-    if (!modal) return;
-
-    if (cerrar) {
-        cerrar.addEventListener("click", cerrarModalCopyTrading);
+            if (programas) {
+                programas.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
     }
-
-    if (backdrop) {
-        backdrop.addEventListener("click", cerrarModalCopyTrading);
-    }
-
-    document.addEventListener("keydown", e => {
-        if (e.key === "Escape" && modal.classList.contains("active")) {
-            cerrarModalCopyTrading();
-        }
-    });
-}
-
-
-async function abrirModalCopyTrading() {
-    const modal = document.querySelector("#modalCopy");
-    const contenido = document.querySelector("#copyTradingContent");
-
-    if (!modal || !contenido) return;
-
-    modal.classList.add("active");
-    document.body.style.overflow = "hidden";
-
-    if (!contenido.dataset.loaded) {
-        contenido.innerHTML = `
-            <div class="copy-loading">
-                Cargando Copy Trading...
-            </div>
-        `;
-
-        try {
-            await cargarCssCopyTrading();
-
-            const respuesta = await fetch("copytrading.html");
-
-            if (!respuesta.ok) {
-                throw new Error("No se pudo cargar copytrading.html");
-            }
-
-            const html = await respuesta.text();
-            contenido.innerHTML = html;
-            contenido.dataset.loaded = "true";
-
-            await cargarJsCopyTrading();
-
-            if (window.lucide) {
-                lucide.createIcons();
-            }
-
-        } catch (error) {
-            console.error(error);
-
-            contenido.innerHTML = `
-                <div class="copy-error">
-                    <h2>No se pudo cargar el módulo</h2>
-                    <p>Revisá que existan los archivos copytrading.html, copytrading.css y copytrading.js.</p>
-                </div>
-            `;
-        }
-    }
-}
-
-
-function cerrarModalCopyTrading() {
-    const modal = document.querySelector("#modalCopy");
-
-    if (!modal) return;
-
-    modal.classList.remove("active");
-    document.body.style.overflow = "";
-}
-
-
-// ================= CARGA DINÁMICA COPYTRADING CSS =================
-
-function cargarCssCopyTrading() {
-    return new Promise(resolve => {
-        const cssExistente = document.querySelector('link[data-copytrading-css="true"]');
-
-        if (cssExistente) {
-            resolve();
-            return;
-        }
-
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = "copytrading.css";
-        link.dataset.copytradingCss = "true";
-
-        link.onload = () => resolve();
-        link.onerror = () => resolve();
-
-        document.head.appendChild(link);
-    });
-}
-
-
-// ================= CARGA DINÁMICA COPYTRADING JS =================
-
-function cargarJsCopyTrading() {
-    return new Promise(resolve => {
-        const jsExistente = document.querySelector('script[data-copytrading-js="true"]');
-
-        if (jsExistente) {
-            if (typeof iniciarCopyTrading === "function") {
-                iniciarCopyTrading();
-            }
-
-            resolve();
-            return;
-        }
-
-        const script = document.createElement("script");
-        script.src = "copytrading.js";
-        script.dataset.copytradingJs = "true";
-
-        script.onload = () => {
-            if (typeof iniciarCopyTrading === "function") {
-                iniciarCopyTrading();
-            }
-
-            resolve();
-        };
-
-        script.onerror = () => resolve();
-
-        document.body.appendChild(script);
-    });
 }
