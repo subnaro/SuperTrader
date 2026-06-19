@@ -1,27 +1,116 @@
-/* ================= BENEFICIOS ================= */
+/* ================= COPY TRADING ================= */
+
+.copy-wrap{
+    max-width:900px;
+    margin:auto;
+}
+
+/* HEADER */
+
+.copy-header{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.copy-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:9px 16px;
+    border-radius:999px;
+    background:rgba(226,170,61,.1);
+    border:1px solid rgba(226,170,61,.2);
+    color:var(--gold-light);
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.copy-badge svg{
+    width:18px;
+    height:18px;
+}
+
+.copy-header h2{
+    font-size:36px;
+    margin-bottom:10px;
+    letter-spacing:-1px;
+}
+
+.copy-header p{
+    max-width:650px;
+    margin:auto;
+    color:rgba(255,255,255,.65);
+    line-height:1.6;
+    font-size:15px;
+}
+
+/* VIDEO */
+
+.copy-video-box{
+    border-radius:28px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    background:
+    linear-gradient(145deg,rgba(255,255,255,.04),transparent),
+    rgba(255,255,255,.02);
+    margin-bottom:28px;
+}
+
+.copy-video-placeholder{
+    aspect-ratio:16/9;
+    min-height:260px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:16px;
+}
+
+.copy-play{
+    width:82px;
+    height:82px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(180deg,var(--gold-light),var(--gold));
+    box-shadow:0 15px 40px rgba(226,170,61,.35);
+}
+
+.copy-play svg{
+    width:32px;
+    height:32px;
+    color:#111;
+}
+
+.copy-video-placeholder span{
+    font-size:21px;
+    font-weight:800;
+}
+
+.copy-video-placeholder small{
+    color:rgba(255,255,255,.55);
+    font-size:13px;
+}
+
+/* BENEFICIOS */
 
 .copy-benefits{
     display:flex;
     justify-content:center;
     gap:16px;
-    margin-bottom:35px;
+    margin-bottom:34px;
 }
 
 .copy-item{
     width:240px;
     padding:16px 18px;
-
     border-radius:18px;
-
     background:
-    linear-gradient(
-    145deg,
-    rgba(255,255,255,.03),
-    transparent),
+    linear-gradient(145deg,rgba(255,255,255,.03),transparent),
     rgba(255,255,255,.02);
-
     border:1px solid rgba(255,255,255,.06);
-
     transition:.3s;
 }
 
@@ -42,43 +131,28 @@
     color:rgba(255,255,255,.55);
 }
 
-
-/* ================= BOTON ================= */
+/* BOTON */
 
 .copy-action{
     display:flex;
     justify-content:center;
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
 
 .btn-copy{
     height:58px;
     padding:0 38px;
-
     border:none;
     cursor:pointer;
-
     border-radius:16px;
-
     display:flex;
     align-items:center;
     gap:12px;
-
     font-size:15px;
     font-weight:900;
-
     color:#111 !important;
-
-    background:
-    linear-gradient(
-    180deg,
-    #f2d287,
-    #d8a94a 55%,
-    #b9812d) !important;
-
-    box-shadow:
-    0 18px 40px rgba(216,169,74,.35);
-
+    background:linear-gradient(180deg,#f2d287,#d8a94a 55%,#b9812d) !important;
+    box-shadow:0 18px 40px rgba(216,169,74,.35);
     transition:.3s;
 }
 
@@ -91,17 +165,14 @@
     height:18px;
 }
 
-
-/* ================= AVISO ================= */
+/* AVISO */
 
 .copy-alert{
     display:flex;
     justify-content:center;
     align-items:center;
     gap:8px;
-
-    margin-top:8px;
-
+    margin-top:6px;
     background:none;
     border:none;
     padding:0;
@@ -119,13 +190,72 @@
     line-height:1.5;
 }
 
+/* TOAST */
 
-/* ================= RESPONSIVE ================= */
+.copy-toast{
+    position:fixed;
+    top:30px;
+    right:30px;
+    z-index:999999;
+    opacity:0;
+    transform:translateY(-20px);
+    transition:.3s;
+}
+
+.copy-toast.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.copy-toast-card{
+    min-width:320px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:18px 20px;
+    border-radius:20px;
+    background:
+    linear-gradient(145deg,rgba(255,255,255,.04),transparent),
+    rgba(8,11,13,.96);
+    border:1px solid rgba(226,170,61,.15);
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.copy-toast-icon{
+    width:50px;
+    height:50px;
+    border-radius:16px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(226,170,61,.1);
+    font-size:24px;
+}
+
+.copy-toast-text h4{
+    margin-bottom:5px;
+    color:var(--gold-light);
+}
+
+.copy-toast-text p{
+    color:rgba(255,255,255,.65);
+    font-size:14px;
+}
+
+/* RESPONSIVE */
 
 @media(max-width:700px){
 
+    .copy-header{
+        margin-bottom:22px;
+    }
+
     .copy-header h2{
         font-size:30px;
+    }
+
+    .copy-video-placeholder{
+        min-height:210px;
     }
 
     .copy-video-placeholder span{
@@ -134,8 +264,8 @@
     }
 
     .copy-play{
-        width:75px;
-        height:75px;
+        width:72px;
+        height:72px;
     }
 
     .copy-benefits{
@@ -155,6 +285,18 @@
 
     .copy-alert{
         padding:0 10px;
+        text-align:center;
     }
 
+    .copy-toast{
+        top:auto;
+        right:15px;
+        left:15px;
+        bottom:20px;
+    }
+
+    .copy-toast-card{
+        min-width:unset;
+        width:100%;
+    }
 }
